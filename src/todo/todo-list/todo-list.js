@@ -10,7 +10,7 @@ const styles = {
     }
 };
 
-function TodoList(props) {
+let TodoList = (props) => {
     return (
         <div>
             <ul style={styles.ul}>
@@ -24,7 +24,7 @@ function TodoList(props) {
             </ul>
         </div>
     )
-}
+};
 
 TodoList.propTypes = {
     todos: PropTypes.arrayOf(PropTypes.object),

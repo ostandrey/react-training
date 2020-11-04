@@ -3,27 +3,8 @@ import PropTypes from 'prop-types'
 import {Button} from "react-bootstrap";
 import Context from "../contex";
 
-const styles = {
-    li: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '10px 10px',
-        border: '1px solid #ccc',
-        borderRadius: '4px',
-        marginBottom: '.5rem',
-    },
-    input: {
-        marginRight: '1rem',
-    },
-    btnDelete: {
-        padding: 0,
-        lineHeight:0
-    },
-};
+let TodoItem = ({todo, index, onChange }) => {
 
-function TodoItem({todo, index, onChange }) {
-    console.log(todo);
     const {removeTodoItem} = useContext(Context);
     const classes = [];
 
@@ -32,11 +13,11 @@ function TodoItem({todo, index, onChange }) {
     }
 
     return (
-        <li style={styles.li}>
+        <li>
             <span className={classes.join(' ')}>
                 <input type="checkbox"
-                       style={styles.input}
                        checked={todo.completed}
+                       className={'item-checkbox'}
                        onChange={() => onChange(todo.id)}/>
                 {index + 1}
                 {/*space*/}
@@ -50,7 +31,7 @@ function TodoItem({todo, index, onChange }) {
             </Button>
         </li>
     )
-}
+};
 
 //validation
 TodoItem.propTypes = {

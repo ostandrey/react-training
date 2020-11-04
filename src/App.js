@@ -6,14 +6,14 @@ import {ButtonGroup} from "react-bootstrap";
 import Context from "./todo/contex";
 import AddTodo from "./todo/add-todo/add-todo";
 
-function App() {
+let App = () => {
     const [todos, setTodos] = React.useState([
         { id: 1, completed: true, title: 'Buy milk'},
         { id: 2, completed: false, title: 'Buy bread'},
         { id: 3, completed: false, title: 'Buy water'},
     ]);
 
-    function statusTodo(id) {
+    let statusTodo = (id) => {
         setTodos(
             todos.map(todo => {
                 if (todo.id === id) {
@@ -22,20 +22,21 @@ function App() {
                 return todo
             })
         )
-    }
+    };
 
-    function removeTodoItem(id) {
+    let removeTodoItem = (id) => {
         setTodos(todos.filter(todo => todo.id !== id))
-    }
+    };
 
-    function addTodo(title) {
+    let addTodo = (title) => {
         setTodos(todos.concat([{
             title,
             id: todos.length + 1,
             completed: false
         }]))
 
-    }
+    };
+
     return (
         <Context.Provider value={{ removeTodoItem }}>
             <div className={'wrapper'}>

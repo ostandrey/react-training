@@ -2,18 +2,18 @@ import {Button} from "react-bootstrap";
 import React, {useState} from "react";
 import PropTypes from 'prop-types';
 
-function AddTodo({ onCreate }) {
+let AddTodo = ({ onCreate }) => {
     const [value, setValue] = useState('');
 
-
-    function submitTodo(event) {
+    let submitTodo = (event) => {
         event.preventDefault();
         if (value.trim()) {
             onCreate(value);
             setValue('')
         }
         console.log(event);
-    }
+    };
+
     return(
         <form action="" onSubmit={submitTodo}>
             <div className={'input-container'}>
