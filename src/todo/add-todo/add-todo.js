@@ -32,7 +32,7 @@ let AddTodo = ({ onCreate }) => {
             </div>
         </form>
     );
-}
+};
 
 AddTodo.propTypes = {
     onCreate: PropTypes.func
